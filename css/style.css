@@ -231,3 +231,17 @@ main {
         margin: 10vh auto;
     }
 }
+
+/*altera cor robotron*/
+
+.alterar {
+    margin: 2px;
+    width: 150px;
+}
+
+.botoes {
+   position: relative;
+   right: 5%;
+   bottom: 10%;
+   display: flex;
+}

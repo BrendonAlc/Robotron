@@ -1,5 +1,5 @@
 const controle = document.querySelectorAll("[data-controle]")
-const estatisticas = document.querySelectorAll("[data-estatistica]")
+const estatistica = document.querySelectorAll("[data-estatistica]")
 
 //Objeto com estatisticas do robotron
 const pecas = {
@@ -37,8 +37,8 @@ const pecas = {
 }
 
 controle.forEach( (elemento) => {
-    elemento.addEventListener("click", (evento) => {
-        manipulaDados(evento.target.dataset.controle, evento.target.parentNode) //parentNode busca o elemento PAI 
+    elemento.addEventListener('click', (evento) => {
+        manipulaDados(evento.target.textContent, evento.target.parentNode) //parentNode busca o elemento PAI 
         atualizaEstatistica(evento.target.dataset.peca)
     })
 })
@@ -58,10 +58,17 @@ function manipulaDados (operacao, controle){
 
 //Atualiza estatistica
 function atualizaEstatistica(peca) {
-    estatisticas.forEach( (elemento) => { //buscando elemento no objeto estatistica
+    estatistica.forEach( (elemento) => { //buscando elemento no objeto estatistica
         //buscando elemento que esta em formato string e convertendo para inteiro e atualizando (somando) a base de estatistica a cada peca adicionada
-        elemento.textContent = parseInt(elemento.textContent) + pecas[peca][elemento.dataset.estatisticas]
+        elemento.textContent = parseInt(elemento.textContent) + pecas[peca][elemento.dataset.estatistica]
     })
+}
+
+
+//Troca cor do robotron
+
+function trocaImagem(cor){
+    document.querySelector(".robo").src="../img/Robotron 2000 - " + cor + ".png";
 }
 
 
